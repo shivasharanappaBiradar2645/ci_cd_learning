@@ -1,6 +1,6 @@
 import requests
 
-BASEURL = "https://yurippe.vercel.app/api/quotes"
+BASEURL = "https://yurippe.vercel.app/api/quotes656"  #added a wrong url
 
 
 def get_by_character(character):
