@@ -1,6 +1,6 @@
 import requests
 
-BASEURL = "https://yurippe.vercel.app/api/quotes"
+BASEURL = "https://yurippe.vercel.app/api/quotes"  #fixed the url 
 
 
 def get_by_character(character):
@@ -21,6 +21,8 @@ def get_by_show(show):
     data = response.json()
     return f"character: {data[0]['character']} \nquote: {data[0]['quote']}"
 
-print(get_by_character("oreki"))
-print()
-print(get_by_show("hyouka"))
+
+if __name__ == "__main__":
+    print(get_by_character("oreki"))
+    print()
+    print(get_by_show("hyouka"))

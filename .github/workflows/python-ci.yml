@@ -28,3 +28,7 @@ jobs:
         run:  |
           pytest
 
+      - name: Deploy
+        run:  python main.py
+        
+
