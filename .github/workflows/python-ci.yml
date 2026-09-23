@@ -7,9 +7,15 @@ on:
   pull_request:
     branches: ["main"]
 
+env:
+  global_variable: "hello "
+  
+
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      job_variable: "World"
     
     steps:
       - name: Checkout code
@@ -28,8 +34,14 @@ jobs:
         run:  |
           pytest
 
-      - name: Accessing secret variable
-        run: echo "hi ${{vars.USER}}"
+      - name: Accessing variables
+        env:
+          step_variable: "!"
+        run: |
+          echo "hi ${{vars.USER}}"
+          echo "listen the truth from me ${{secrets.TRUTH}}"
+          echo "repository name is ${{github.repository}}"
+          echo "$global_variable $job_variable $step_variable"
 
       - name: Deploy
         run:  python main.py
