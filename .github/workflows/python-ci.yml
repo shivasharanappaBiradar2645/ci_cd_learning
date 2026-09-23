@@ -28,6 +28,9 @@ jobs:
         run:  |
           pytest
 
+      - name: Accessing secret variable
+        run: echo "hi ${{var.USER}}"
+
       - name: Deploy
         run:  python main.py
         
