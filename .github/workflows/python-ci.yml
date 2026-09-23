@@ -29,6 +29,12 @@ jobs:
       - name: Install dependencies
         run:  |
           pip install -r requirements.txt
+
+      - name: Upload the requirements
+        uses: actions/upload-artifact@v4
+        with:
+          name: requestfile
+          path: requirements.txt
       
       - name: Run tests
         run:  |
@@ -47,6 +53,7 @@ jobs:
         run:  python main.py
 
   test2:
+    needs: test
     runs-on: ubuntu-latest
 
     steps:
@@ -55,5 +62,16 @@ jobs:
       
       - name: run
         run: bash test.sh
+
+      - name: download the requirements
+        uses: actions/download-artifact@v4
+        with:
+          name: requestfile
+    
+      - name: read the file
+        run: cat requirements.txt
+
+
+      
         
 
