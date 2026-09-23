@@ -45,5 +45,15 @@ jobs:
 
       - name: Deploy
         run:  python main.py
+
+  test2:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v5
+      
+      - name: run
+        run: bash test.sh
         
 
